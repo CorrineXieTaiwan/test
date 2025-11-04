@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>問卷調查表</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        
+        <!-- 第一頁：基本資料 -->
+        <div class="page active" id="page1">
+            <h1>基本資料問卷</h1>
+            <form id="basicInfoForm">
+                <div class="form-group">
+                    <label for="name">姓名 <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="age">年齡 <span class="required">*</span></label>
+                    <input type="number" id="age" name="age" min="1" max="120" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="gender">性別 <span class="required">*</span></label>
+                    <select id="gender" name="gender" required>
+                        <option value="">請選擇</option>
+                        <option value="male">男性</option>
+                        <option value="female">女性</option>
+                        <option value="other">其他</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">電子郵件 <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">電話號碼</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="city">居住城市 <span class="required">*</span></label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                
+                <button type="button" class="btn btn-next" onclick="nextPage()">下一頁</button>
+            </form>
+        </div>
+        
+        <!-- 第二頁：個人生活習慣 -->
+        <div class="page" id="page2">
+            <h1>個人生活習慣問卷</h1>
+            <form id="lifestyleForm">
+                <!-- 飲食習慣 -->
+                <div class="form-section">
+                    <h2>飲食習慣（可複選）</h2>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="diet" value="vegetarian">
+                            <span class="checkmark"></span>
+                            素食
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="diet" value="vegan">
+                            <span class="checkmark"></span>
+                            純素
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="diet" value="halal">
+                            <span class="checkmark"></span>
+                            清真飲食
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="diet" value="no-pork">
+                            <span class="checkmark"></span>
+                            不吃豬肉
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="diet" value="low-carb">
+                            <span class="checkmark"></span>
+                            低碳飲食
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="diet" value="gluten-free">
+                            <span class="checkmark"></span>
+                            無麩質飲食
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="diet" value="organic">
+                            <span class="checkmark"></span>
+                            有機飲食
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="diet" value="no-restriction">
+                            <span class="checkmark"></span>
+                            無特殊限制
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- 交通習慣 -->
+                <div class="form-section">
+                    <h2>交通習慣（可複選）</h2>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="transport" value="walking">
+                            <span class="checkmark"></span>
+                            步行
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="transport" value="bicycle">
+                            <span class="checkmark"></span>
+                            自行車
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="transport" value="motorcycle">
+                            <span class="checkmark"></span>
+                            機車
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="transport" value="car">
+                            <span class="checkmark"></span>
+                            汽車
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="transport" value="bus">
+                            <span class="checkmark"></span>
+                            公車
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="transport" value="mrt">
+                            <span class="checkmark"></span>
+                            捷運/地鐵
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="transport" value="train">
+                            <span class="checkmark"></span>
+                            火車
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="transport" value="taxi">
+                            <span class="checkmark"></span>
+                            計程車/叫車服務
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- 生活興趣 -->
+                <div class="form-section">
+                    <h2>生活興趣（可複選）</h2>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interest" value="reading">
+                            <span class="checkmark"></span>
+                            閱讀
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interest" value="music">
+                            <span class="checkmark"></span>
+                            音樂
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interest" value="sports">
+                            <span class="checkmark"></span>
+                            運動
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interest" value="travel">
+                            <span class="checkmark"></span>
+                            旅遊
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interest" value="cooking">
+                            <span class="checkmark"></span>
+                            烹飪
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interest" value="photography">
+                            <span class="checkmark"></span>
+                            攝影
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interest" value="movies">
+                            <span class="checkmark"></span>
+                            電影
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interest" value="gaming">
+                            <span class="checkmark"></span>
+                            遊戲
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interest" value="art">
+                            <span class="checkmark"></span>
+                            藝術
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interest" value="dancing">
+                            <span class="checkmark"></span>
+                            舞蹈
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interest" value="gardening">
+                            <span class="checkmark"></span>
+                            園藝
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interest" value="volunteer">
+                            <span class="checkmark"></span>
+                            志工服務
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button type="button" class="btn btn-prev" onclick="prevPage()">上一頁</button>
+                    <button type="submit" class="btn btn-submit">提交問卷</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- 提交成功頁面 -->
+        <div class="page" id="page3">
+            <div class="success-message">
+                <div class="success-icon">✓</div>
+                <h1>問卷提交成功！</h1>
+                <p>感謝您填寫問卷，您的資料已成功提交。</p>
+                <button type="button" class="btn btn-reset" onclick="resetForm()">重新填寫</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
